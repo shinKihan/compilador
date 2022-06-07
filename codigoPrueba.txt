@@ -1,0 +1,80 @@
+Program Vintage;
+var
+     int x,a;
+     float k;
+     char n;
+
+module void func1();
+{
+     x = 4;
+     k = 3.5;
+}
+
+module char func2(int y, float l);
+var
+     int z;
+{
+     from z = x to y do{
+          write("Hello World", z*func3(l));
+          l = l+k;
+          write("l",l);
+     }
+     if(l < 10) then{
+          return('p');
+     }
+     return('n');
+}
+
+module float func3(float l);
+{
+     while(l < k) do{
+          l = l * 1.25;
+     }
+     write("k",l);
+     k = l;
+     return(l);
+}
+
+module int func4(int y);
+{
+     if(y==0 | y==1) then{
+          return(y);
+     } else {
+          return(func4(y-1)+func4(y-2));
+     }
+}
+
+module void func5();
+{
+     Color("red");
+     Line(200);
+     Turn(90);
+     Color("blue");
+     Point();
+     Line(200);
+     Turn(90);
+     PenUp();
+     Line(200);
+     Turn(90);
+     PenDown();
+     Size(10);
+     Line(200);
+     Turn(90);
+}
+
+main()
+{
+     write( 3+6/3, (3+6)/3 );
+     x = 0;
+     do{
+          write(func4(x));
+          x = x+1;
+     }while(x<7)
+     func1();
+     read(a);
+     n = func2(func4(a),1);
+     write("final",n);
+     if(n=='p') then{
+          func5();
+     }
+}
